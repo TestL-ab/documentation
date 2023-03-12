@@ -9,7 +9,7 @@ let basePath = '/'
 let repo
 
 if (isGithubActions) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
+  repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
 }
 
 const nextConfig = {
@@ -19,6 +19,8 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md'],
   images: {
     unoptimized: true,
+    loader: 'imgix',
+    path: 'testlab.imgix.net',
   },
   experimental: {
     scrollRestoration: true,
